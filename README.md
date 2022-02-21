@@ -1,40 +1,102 @@
-# Hello Node!
+# A Hitchhiker's Guide to APIs
 
-This project includes a Node.js server script and a web page that connects to it. The front-end page presents a form the visitor can use to submit a color name, sending the submitted value to the back-end API running on the server. The server returns info to the page that allows it to update the display with the chosen color. 🎨
+## Quick examples
 
-[Node.js](https://nodejs.org/en/about/) is a popular runtime that lets you run server-side JavaScript. This project uses the [Fastify](https://www.fastify.io/) framework and explores basic templating with [Handlebars](https://handlebarsjs.com/).
+### PokeAPI
 
-## Prerequisites
+Suggested by [Ryan Murphy](https://twitter.com/rdmurphy/status/1493275555512217606?s=20&t=GwIge5hkYAqo09c5neJKGg)
+- Documentation: https://pokeapi.co/docs/v2
+- Example: https://pokeapi.co/api/v2/pokemon/charmander/
+- Fun nugget: data.sprites.other.home.front_default[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png]
 
-You'll get best use out of this project if you're familiar with basic JavaScript. If you've written JavaScript for client-side web pages this is a little different because it uses server-side JS, but the syntax is the same!
 
-## What's in this project?
 
-← `README.md`: That’s this file, where you can tell people what your cool website does and how you built it.
+## The basics
 
-← `public/style.css`: The styling rules for the pages in your site.
+### Request: What you send
 
-← `server.js`: The **Node.js** server script for your new site. The JavaScript defines the endpoints in the site back-end, one to return the homepage and one to update with the submitted color. Each one sends data to a Handlebars template which builds these parameter values into the web page the visitor sees.
+Essentially, a specifically-formatted URL.
 
-← `package.json`: The NPM packages for your project's dependencies.
+### Response: What you get
 
-← `src/`: This folder holds the site template along with some basic data files.
+Data ... usually in JSON format.
 
-← `src/pages/index.hbs`: This is the main page template for your site. The template receives parameters from the server script, which it includes in the page HTML. The page sends the user submitted color value in the body of a request, or as a query parameter to choose a random color.
+### Reading API docs
 
-← `src/colors.json`: A collection of CSS color names. We use this in the server script to pick a random color, and to match searches against color names.
+- The endpoint
+- The parameters
+- GET vs POST
+- API keys
 
-← `src/seo.json`: When you're ready to share your new site or add a custom domain, change SEO/meta settings in here.
+## Getting the data
 
-## Try this next 🏗️
+### On the command line
 
-Take a look in `TODO.md` for next steps you can try out in your new site!
+### In Node.js
 
-___Want a minimal version of this project to build your own Node.js app? Check out [Blank Node](https://glitch.com/edit/#!/remix/glitch-blank-node)!___
+### In Google Sheets
 
-![Glitch](https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2FLogo_Color.svg?v=1602781328576)
+## OAuth, Tokens, Bearers oh my
 
-## You built this with Glitch!
+Twitter?
+
+
+
+
+## Triggering things in the real world
+
+Sending a text message.
+Use environment secrets to send a message to a phone number.
+
+## Sending a Slack message
+
+Send it to ReallyGoodSmarts.
+
+## Uses
+
+### Weather in Atlanta Page
+
+Build this here in Glitch
+
+### Updating Maps
+
+Using Simon's amazing Github Actions trick.
+
+### Keeping track of Congress
+
+So you don't make the mistake I made. (Let ProPublica help you!)
+
+### Making a Google Sheets dashboard
+
+With bitcoin thing
+
+### Feeding your own apps
+
+#### Airtable
+
+
+#### Trello
+
+
+#### Glitch
+
+
+#### Datasette
+
+The output of datasette is essentially an API. Show one of my Datasettes as a URL.
+
+### Tracking ships
+
+
+### Tracking power outages
+
+### Tracking local data
+
+- [Minneapolis police incidents](https://opendata.minneapolismn.gov/datasets/cityoflakes::police-incidents-2022/about)
+  - [API explorer](https://opendata.minneapolismn.gov/datasets/cityoflakes::police-incidents-2022/api)
+    - Note that "where" isn't location ... it's a SQL-like search
+
+## This site is built with Glitch
 
 [Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
 

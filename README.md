@@ -1,6 +1,10 @@
 # A Hitchhiker's Guide to APIs
 
+All of this code exists both as a Glitch project and a [Github repository](https://github.com/jkeefe/api-workshop).
+
 ## Getting ready for this workshop
+
+### While you are waiting
 
 - Sign up for a free account at [Glitch](https://glitch.com/) and log in.
 - If you don't already have one, add a JSON viewer to your web browser:
@@ -8,12 +12,32 @@
     - Firefox: [JSONView](https://addons.mozilla.org/en-US/firefox/addon/jsonview/)
     - Safari: [PrettyJSON](https://apps.apple.com/app/id1445328303?mt=12)
 
+### I'll walk you through this part
 
-## Quick examples
+#### Clone my Glitch project
+
+- In Glitch, [search](https://glitch.com/search?q=api-workshop) for `api-workshop`
+- See mine in the window, and click it
+- Look for the "Remix Your Own" button, and click that:
+![Remix button](./reference/remix_button.png)
+- You now have your _very own copy_ of this project
+- This tab will be your "project" tab
+
+#### Open a Glitch terminal tab
+
+- Along the bottom of the screen, click the "Terminal" button
+- Then click the "Full Page Terminal" button
+- You'll have a new tab in your browser I'll be calling your "terminal" tab
+
+#### Open a blank browser tab
+
+- We'll call this our "testing" tab
+
+## Quick API examples
 
 ### CDC Vaccinations
 
-Suggested by [Sharon Lurye](https://twitter.com/sharonlurye/status/1493581767001133059?s=20&t=GwIge5hkYAqo09c5neJKGg), this is an example of a rich, important dataset ... that is essentially an updated json file.
+Suggested by [Sharon Lurye](https://twitter.com/sharonlurye/status/1493581767001133059?s=20&t=GwIge5hkYAqo09c5neJKGg), this is an example of a rich, important dataset updated frequently.
 
 - Documentation: https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh
     - Click the "API" button
@@ -34,6 +58,10 @@ Suggested by [Casey Miller](https://twitter.com/caseymmiller/status/149328811197
 
 ## The basics
 
+### What's going on here?
+
+Here's a little [chart](./reference/api_flows.pdf) to help explain.
+
 ### Request: What you send
 
 Essentially, a specifically-formatted URL.
@@ -42,7 +70,7 @@ Like: https://aa.usno.navy.mil/api/seasons?year=2022&tz=-5&dst=true
 
 ### Response: What you get
 
-Data ... usually in JSON format.
+Data ... usually structured in JSON format (though sometimes other formats are available).
 
 ### Reading API docs
 
@@ -82,7 +110,7 @@ curl "https://data.cdc.gov/resource/8xkx-amqh.json" > ./data/vaccinations.json
 
 ### API Keys
 
-Often, your access is controlled by dint of you having an API key, which is usually a string of letters and numbers. You need to first acquire a key and then send it along with your "request" ... in whatever way the documentation says so.
+Often, your access requires an API key, which is usually a string of letters and numbers. You need to first acquire a key and then send it along with your "request" ... in whatever way the documentation says to do so.
 
 Sometimes, that's in the url ... as in the Open Weather Map API.
 
@@ -131,6 +159,18 @@ curl "https://api.propublica.org/congress/v1/117/house/members.json" -H "X-API-K
 
 Why would you want a list of house members? 
 
+#### API Key Security
+
+- You don't want your API keys in the open!
+    - Generally I use them server-side
+    - Check to make sure it's okay to store data like this
+    - Often services _would rather_ you store what you fetch yourself
+    
+- There are some exceptions to that
+    - Mapping services, for example, will often charge by how many of your readers/viewers hit the map
+    - In this case, there are special restrictions put on the API keys, so you can have them in public
+    
+- In this project, with this code, they are stored in the `.env` file. Glitch didn't copy over my values when you clone this project ... so you can add them yourself!
 
 ### OAuth
 
@@ -140,40 +180,43 @@ A more sophisticated (and complicated) way of authenticating.
 
 Suggested by [Roberto Rocha](https://twitter.com/robroc/status/1493281139422814210?s=20&t=GwIge5hkYAqo09c5neJKGg)
 
-Node.js!
-
 - Documentation: https://developer.spotify.com/documentation/web-api/
 - Endpoints: https://developer.spotify.com/documentation/web-api/reference/#/
 - Node module: https://www.npmjs.com/package/spotify-web-api-node
 
-JK: Build some examples
+JK: Build an example in node.
 
 
 ## Uses
 
-### Coinbase in a Google Sheets "Dashboard"
+### Use in a Makefile
+ 
+Give an example of an example that turns the Congress API into a CSV
+
+### Run that in a Github Action
+
+Link out to Simon's work
+
+### Feeding your own apps
+
+- Airtable has [separate endpoints](https://airtable.com/api) for each "base"
+- Trello has an [API](https://developer.atlassian.com/cloud/trello/rest/api-group-actions/)
+- Github has an extensive [API](https://docs.github.com/en/rest)
+
+### Making a Google Sheets "Dashboard"
 
 - Coinbase API: http://api.coinbase.com
 - The data we want is at this endpoint: https://api.coinbase.com/v2/prices/BTC-USD/spot
 - See the example in a Google Sheet
 - See [how to make this yourself](examples/sheets_plus_coinbase.md)
 
-### Feeding your own apps
-
-#### Airtable
-
-#### Trello
 
 ### Triggering things in the real world
 
-#### Sending a Slack message
-
-Send it to ReallyGoodSmarts.
-
-#### Sending a text message.
+- Sending a Slack message
+- Sending a text message.
 
 Use environment secrets to send a message to a phone number.
-
 
 ## Moar examples
 
@@ -238,7 +281,7 @@ Suggested by [@ADoug](https://twitter.com/ADoug/status/1495962857032359946?s=20&
 [The List](https://github.com/public-apis/public-apis)
     
     
-### Closing thoughts
+## Closing thoughts
 
 Rachel Shorey [points out](https://twitter.com/rachel_shorey/status/1493293227704823808?s=20&t=GwIge5hkYAqo09c5neJKGg) that oftentimes you can find APIs by looking at the console for a site you're browsing.
 
@@ -247,6 +290,9 @@ Jeremy Bowers [mentioned](https://twitter.com/jeremybowers/status/14932758836957
 ESRI, on the other hand, has a [well-documented API](https://developers.arcgis.com/rest/services-reference/enterprise/get-started-with-the-services-directory.htm) that underlies many maps government maps and dashboards. (And, as we saw, have made them easier to use in the interfaces, too.)
 
 I'd note that although there's definitely a [National Weather Service API](https://www.weather.gov/documentation/services-web-api), you can find json sources for things such as [snow reports](https://www.weather.gov/source/crh/lsr_snow.geojson) under places like [this map](https://www.weather.gov/source/crh/snowmap.html)
+
+## Questions?
+
 
 ## This site is built with Glitch
 

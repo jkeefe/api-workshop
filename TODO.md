@@ -1,6 +1,9 @@
 # My TODO
 
-- Grab Propublica API Key
-- Grab openweathermap api key
-- Get a phone number, add it to the env file
-- Open My Coinbase Sheet
+
+## Before Atlanta
+
+- Build a spotify example
+- Build a real-world example
+- Build a twilio example
+

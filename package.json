@@ -7,6 +7,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "axios": "^0.26.0",
     "fastify": "^3.27.1",
     "fastify-formbody": "^5.2.0",
     "fastify-static": "^4.5.0",

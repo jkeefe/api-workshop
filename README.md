@@ -210,7 +210,6 @@ Link out to Simon's work
 - See the example in a Google Sheet
 - See [how to make this yourself](examples/sheets_plus_coinbase.md)
 
-
 ### Triggering things in the real world
 
 - Sending a Slack message

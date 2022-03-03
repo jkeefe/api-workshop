@@ -162,7 +162,14 @@ Suggested by [Roberto Rocha](https://twitter.com/robroc/status/14932811394228142
 - Endpoints: https://developer.spotify.com/documentation/web-api/reference/#/
 - Node module: https://www.npmjs.com/package/spotify-web-api-node
 
-JK: Build an example in node.
+Steps
+- Log into Spotify
+- Make a new Spotify "[application](https://developer.spotify.com/dashboard/applications)"
+- Then you can get a Client ID and Client Secret
+- The OAuth flow is [documented here](https://developer.spotify.com/documentation/general/guides/authorization/client-credentials/)
+- I've made an [example for you](https://github.com/jkeefe/api-workshop/blob/main/examples/spotify_elvis.js)!
+    - put your own SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET in the .env file here
+    - run in terminal with `node examples/spotify_elvis.js`
 
 
 ## Uses

@@ -1,23 +1,26 @@
 {
-  "name": "glitch-hello-node",
+  "name": "api-workshop",
   "version": "0.0.1",
-  "description": "A simple Node app built on fastify, instantly up and running. Built to be remixed on Glitch.com.",
+  "description": "Some code and docs for a NICAR22 demo on APIs",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
+    "axios": "^0.26.0",
     "fastify": "^3.27.1",
     "fastify-formbody": "^5.2.0",
     "fastify-static": "^4.5.0",
     "handlebars": "^4.7.7",
-    "point-of-view": "^5.1.0"
+    "point-of-view": "^5.1.0",
+    "twilio": "^4.6.0",
+    "dotenv": "^15.0.1"
   },
   "engines": {
     "node": "12.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/glitch-hello-node"
+    "url": "https://glitch.com/edit/#!/api-workshop"
   },
   "license": "MIT",
   "keywords": [

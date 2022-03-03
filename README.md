@@ -210,13 +210,14 @@ Link out to Simon's work
 - See the example in a Google Sheet
 - See [how to make this yourself](examples/sheets_plus_coinbase.md)
 
-
 ### Triggering things in the real world
 
 - Sending a Slack message
-- Sending a text message.
-
-Use environment secrets to send a message to a phone number.
+  - See the [example](./examples/quake_slacker.js)
+  - `node examples/quake_slacker.js`
+- Sending a text message with [Twilio's API](https://www.twilio.com/docs/sms/send-messages).
+  - Note their amazing docs, with examples in lots of languages
+  - `node examples/texter.js`
 
 ## Moar examples
 
@@ -299,4 +300,3 @@ I'd note that although there's definitely a [National Weather Service API](https
 [Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
 
 - Need more help? [Check out our Help Center](https://help.glitch.com/) for answers to any common questions.
-- Ready to make it official? [Become a paid Glitch member](https://glitch.com/pricing) to boost your app with private sharing, more storage and memory, domains and more.

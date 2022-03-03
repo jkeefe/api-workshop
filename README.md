@@ -195,12 +195,12 @@ Check out how to automate such a fetch using a [GitHub Action](https://simonwill
 - Coinbase API: http://api.coinbase.com
 - The data we want is at this endpoint: https://api.coinbase.com/v2/prices/BTC-USD/spot
 - See the example in a Google Sheet
-- See [how to make this yourself](examples/sheets_plus_coinbase.md)
+- See [how to make this yourself](https://github.com/jkeefe/api-workshop/blob/main/examples/sheets_plus_coinbase.md)
 
 ### Triggering things in the real world
 
 - Sending a Slack message
-  - See the [example](./examples/quake_slacker.js)
+  - See the [example](https://github.com/jkeefe/api-workshop/blob/main/examples/quake_slacker.js)
   - `node examples/quake_slacker.js`
 - Sending a text message with [Twilio's API](https://www.twilio.com/docs/sms/send-messages).
   - Note their amazing docs, with examples in lots of languages
@@ -260,7 +260,7 @@ Suggested by [Ryan Murphy](https://twitter.com/rdmurphy/status/14932755555122176
 
 - Documentation: https://pokeapi.co/docs/v2
 - Example: https://pokeapi.co/api/v2/pokemon/charmander/
-    - Fun nugget: .sprites.other.home.front_default[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png]
+    - Fun nugget: (.sprites.other.home.front_default)[https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/4.png]
 
 #### Mega list of APIS
 
@@ -273,11 +273,13 @@ Suggested by [@ADoug](https://twitter.com/ADoug/status/1495962857032359946?s=20&
 
 Rachel Shorey [points out](https://twitter.com/rachel_shorey/status/1493293227704823808?s=20&t=GwIge5hkYAqo09c5neJKGg) that oftentimes you can find APIs by looking at the console for a site you're browsing.
 
+I'd second that! For example, although there's definitely a [National Weather Service API](https://www.weather.gov/documentation/services-web-api), you can find json sources for things such as [snow reports](https://www.weather.gov/source/crh/lsr_snow.geojson) under places like [this map](https://www.weather.gov/source/crh/snowmap.html)
+
 Jeremy Bowers [mentioned](https://twitter.com/jeremybowers/status/1493275883695751173?s=20&t=GwIge5hkYAqo09c5neJKGg) that there's an undocumented API powering all the jurisictions that use Clarity to post their election results.
 
 ESRI, on the other hand, has a [well-documented API](https://developers.arcgis.com/rest/services-reference/enterprise/get-started-with-the-services-directory.htm) that underlies many maps government maps and dashboards. (And, as we saw, have made them easier to use in the interfaces, too.)
 
-I'd note that although there's definitely a [National Weather Service API](https://www.weather.gov/documentation/services-web-api), you can find json sources for things such as [snow reports](https://www.weather.gov/source/crh/lsr_snow.geojson) under places like [this map](https://www.weather.gov/source/crh/snowmap.html)
+
 
 ## Questions?
 

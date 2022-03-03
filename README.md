@@ -7,49 +7,60 @@ All of this code exists both as a Glitch project and a [Github repository](https
 ### While you are waiting
 
 - Sign up for a free account at [Glitch](https://glitch.com/) and log in.
-  - In Glitch, [search](https://glitch.com/search?q=api-workshop) for `api-workshop`
-  - See mine in the window, and click it
-  - Look for the "Remix Your Own" button, and click that
-  - You now have your _very own copy_ of this project
-
 - If you don't already have one, add a JSON viewer to your web browser:
     - Chrome: [JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh?hl=en-US)
     - Firefox: [JSONView](https://addons.mozilla.org/en-US/firefox/addon/jsonview/)
     - Safari: [PrettyJSON](https://apps.apple.com/app/id1445328303?mt=12)
-    
-- Open a new browser window, separate from Glitch
 
+### I'll walk you through this part
+
+#### Clone my Glitch project
+
+- In Glitch, [search](https://glitch.com/search?q=api-workshop) for `api-workshop`
+- See mine in the window, and click it
+- Look for the "Remix Your Own" button, and click that:
+![Remix button](./reference/remix_button.png)
+- You now have your _very own copy_ of this project
+- This tab will be your "project" tab
+
+#### Open a Glitch terminal tab
+
+- Along the bottom of the screen, click the "Terminal" button
+- Then click the "Full Page Terminal" button
+- You'll have a new tab in your browser I'll be calling your "terminal" tab
+
+#### Open a blank browser tab
+
+- We'll call this our "testing" tab
 
 ## Quick API examples
-
-### US Naval Observatory Astronomical Applications API
-
-Suggested by [Casey Miller](https://twitter.com/caseymmiller/status/1493288111970811904?s=20&t=GwIge5hkYAqo09c5neJKGg)
-
-- Examples:
-    - Solar eclipses in 2022: https://aa.usno.navy.mil/api/eclipses/solar/year?year=2022
-    - Seasons for 2022 in US Eastern Time: https://aa.usno.navy.mil/api/seasons?year=2022&tz=-5&dst=true
-    - Daylight Saving: https://aa.usno.navy.mil/api/daylightsaving?year=2022
-
-- Documentation: https://aa.usno.navy.mil/data/api
 
 ### CDC Vaccinations
 
 Suggested by [Sharon Lurye](https://twitter.com/sharonlurye/status/1493581767001133059?s=20&t=GwIge5hkYAqo09c5neJKGg), this is an example of a rich, important dataset updated frequently.
 
+- Documentation: https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh
+    - Click the "API" button
 - Examples:
     - Latest data: https://data.cdc.gov/resource/8xkx-amqh.json
 
-- Documentation: https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh
-    - Click the "API" button
-    - Tap the "Copy" button
-    - Paste that URL into a new tab
+
+### US Naval Observatory Astronomical Applications API
+
+Suggested by [Casey Miller](https://twitter.com/caseymmiller/status/1493288111970811904?s=20&t=GwIge5hkYAqo09c5neJKGg)
+
+- Documentation: https://aa.usno.navy.mil/data/api
+- Examples:
+    - All of the moon phases in 1984: https://aa.usno.navy.mil/api/moon/phases/year?year=1984
+    - Solar eclipses in 2022: https://aa.usno.navy.mil/api/eclipses/solar/year?year=2022
+    - Seasons for 2022 in US Eastern Time: https://aa.usno.navy.mil/api/seasons?year=2022&tz=-5&dst=true
+    - Daylight Saving: https://aa.usno.navy.mil/api/daylightsaving?year=2022
 
 ## The basics
 
 ### What's going on here?
 
-Here's a little [chart](https://github.com/jkeefe/api-workshop/blob/main/reference/api_flows.pdf) to help explain.
+Here's a little [chart](./reference/api_flows.pdf) to help explain.
 
 ### Request: What you send
 
@@ -63,12 +74,9 @@ Data ... usually structured in JSON format (though sometimes other formats are a
 
 ### Reading API docs
 
-Let's look at the Naval Observatory documentation: https://aa.usno.navy.mil/data/api
-
 - The base url: 
     - `https://aa.usno.navy.mil/api/`
 - The endpoint: 
-    - (Note: USNO calls this the "data service")
     - `https://aa.usno.navy.mil/api/seasons`
     - or, in some documentation, just `seasons`
 - The parameters
@@ -88,6 +96,16 @@ Let's look at the Naval Observatory documentation: https://aa.usno.navy.mil/data
     - At what point does it cost money?
 - Terms of Service & License
     - Are you allowed to use the data in the way you want to?
+    
+### Using The Data
+
+Back to the CDC example ... but on the command line:
+
+```
+curl "https://data.cdc.gov/resource/8xkx-amqh.json" > ./data/vaccinations.json
+```
+
+... which you could run from a cron job or a [GitHub Action](https://simonwillison.net/2020/Oct/9/git-scraping/).
     
 
 ### API Keys
@@ -120,29 +138,33 @@ api.openweathermap.org/data/2.5/weather?lat=33.7490&lon=-84.3880&units=imperial&
 - Scroll down the documentation to see how to use your key, and you'll see that you need to send the key in the "header" of the request, which you can do on the command line like this:
 
 ```
-curl "api_endpoint_here" \
+curl "api_endpoint_here"
   -H "X-API-Key: PROPUBLICA_API_KEY"
+```
+
+This can also be written as:
+
+```
+curl "api_endpoint_here" -H "X-API-Key: PROPUBLICA_API_KEY"
 ```
 
 - Example ... on the command line:
 ```
 # see the data
-curl "https://api.propublica.org/congress/v1/117/house/members.json" \
-  -H "X-API-Key: PROPUBLICA_API_KEY"
+curl "https://api.propublica.org/congress/v1/117/house/members.json" -H "X-API-Key: PROPUBLICA_API_KEY"
 
 # save the data to a file: 
-curl "https://api.propublica.org/congress/v1/117/house/members.json" \
-  -H "X-API-Key: PROPUBLICA_API_KEY" > ./data/house_members.json
+curl "https://api.propublica.org/congress/v1/117/house/members.json" -H "X-API-Key: PROPUBLICA_API_KEY" > ./data/house_members.json
 ```
 
 Why would you want a list of house members? 
 
 #### API Key Security
 
-- You don't want your API keys in the open!
+- You use your API keys in the open!
     - Generally I use them server-side
-    - Check to make sure it's okay to store data like this
-    - Often services _would rather_ you store what you fetch yourself
+    - Check to make sure it's okay to store the data you get
+    - Often services _would rather_ you store that data
     
 - There are some exceptions to that
     - Mapping services, for example, will often charge by how many of your readers/viewers hit the map
@@ -167,22 +189,13 @@ JK: Build an example in node.
 
 ## Uses
 
-### On the command line
-
-Back to the CDC example ... but on the command line:
-
-```
-curl "https://data.cdc.gov/resource/8xkx-amqh.json" > ./data/vaccinations.json
-```
-
 ### Use in a Makefile
  
-For example, this directory has a makefile that turns the Congress API into a CSV.
-- `make congress`
+Give an example of an example that turns the Congress API into a CSV
 
 ### Run that in a Github Action
 
-Check out how to automate such a fetch using a [GitHub Action](https://simonwillison.net/2020/Oct/9/git-scraping/), from Simon Willison's great lightning talk last year.
+Link out to Simon's work
 
 ### Feeding your own apps
 
@@ -195,16 +208,14 @@ Check out how to automate such a fetch using a [GitHub Action](https://simonwill
 - Coinbase API: http://api.coinbase.com
 - The data we want is at this endpoint: https://api.coinbase.com/v2/prices/BTC-USD/spot
 - See the example in a Google Sheet
-- See [how to make this yourself](examples/sheets_plus_coinbase.md)
+- See [how to make this yourself](https://github.com/jkeefe/api-workshop/blob/main/examples/sheets_plus_coinbase.md)
 
 ### Triggering things in the real world
 
 - Sending a Slack message
-  - See the [example](./examples/quake_slacker.js)
-  - `node examples/quake_slacker.js`
-- Sending a text message with [Twilio's API](https://www.twilio.com/docs/sms/send-messages).
-  - Note their amazing docs, with examples in lots of languages
-  - `node examples/texter.js`
+- Sending a text message.
+
+Use environment secrets to send a message to a phone number.
 
 ## Moar examples
 
@@ -287,3 +298,4 @@ I'd note that although there's definitely a [National Weather Service API](https
 [Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
 
 - Need more help? [Check out our Help Center](https://help.glitch.com/) for answers to any common questions.
+- Ready to make it official? [Become a paid Glitch member](https://glitch.com/pricing) to boost your app with private sharing, more storage and memory, domains and more.

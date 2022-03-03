@@ -14,7 +14,9 @@
     "handlebars": "^4.7.7",
     "point-of-view": "^5.1.0",
     "twilio": "^4.6.0",
-    "dotenv": "^15.0.1"
+    "dotenv": "^15.0.1",
+    "spotify-web-api-node": "^5.0.2",
+    "request": "^2.88.2"
   },
   "engines": {
     "node": "12.x"
